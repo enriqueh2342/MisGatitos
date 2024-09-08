@@ -12,7 +12,13 @@
            <div>
                <div class="row">
                    <div class="col-md-4 pb-4">
-                       @Html.DropDownList("CatBreeds", ViewBag.CatBreeds as SelectList, "- Selecciona la raza deseada -", new {@class="form-select w-100", @id= "CatBreeds", @Required="True" })
+                       @Html.DropDownList("CatBreeds", ViewBag.CatBreeds as SelectList, "- Selecciona la raza deseada -", new {@class="form-select w-100", @id= "CatBreeds",@style="max-width:100%", @Required="True" })
+                   </div>
+                   <div class="col-md-4 pb-4">
+                       <input name="limit" required class="form-control" type="number" value="" style="max-width:100%" placeholder="Límite de resultados"/>
+                   </div>
+                   <div class="col-md-4 pb-4">
+                       <button class="btn btn-primary w-100" type="submit">Buscar</button>
                    </div>
                </div>
            </div>
