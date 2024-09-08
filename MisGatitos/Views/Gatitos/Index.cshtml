@@ -12,7 +12,7 @@
            <div>
                <div class="row">
                    <div class="col-md-4 pb-4">
-                       @Html.DropDownList("CatBreeds", ViewBag.CatBreeds as SelectList, "- Selecciona la raza deseada -")
+                       @Html.DropDownList("CatBreeds", ViewBag.CatBreeds as SelectList, "- Selecciona la raza deseada -", new {@class="form-select w-100", @id= "CatBreeds", @Required="True" })
                    </div>
                </div>
            </div>
