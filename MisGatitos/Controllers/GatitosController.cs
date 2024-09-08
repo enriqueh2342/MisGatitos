@@ -35,8 +35,9 @@ namespace MisGatitos.Controllers
             }
 
             ViewBag.CatBreeds = new SelectList(gatos, "id", "name");
+            ViewBag.limit = limit;
 
-            return View();
+            return View(resultados);
         }
 
         public IEnumerable<Gato> GetGatos()
