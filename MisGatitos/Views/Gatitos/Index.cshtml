@@ -8,6 +8,14 @@
     </section>
 
     <div class="row">
-       
+       <form>
+           <div>
+               <div class="row">
+                   <div class="col-md-4 pb-4">
+                       @Html.DropDownList("CatBreeds", ViewBag.CatBreeds as SelectList, "- Selecciona la raza deseada -")
+                   </div>
+               </div>
+           </div>
+       </form>
     </div>
 </main>

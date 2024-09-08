@@ -2,6 +2,9 @@
 using System.Web.Mvc;
 using System.Net.Http.Headers;
 using System;
+using System.Collections.Generic;
+using MisGatitos.Models;
+using Newtonsoft.Json;
 
 namespace MisGatitos.Controllers
 {
@@ -20,10 +23,27 @@ namespace MisGatitos.Controllers
         [HttpGet]
         public ActionResult Index()
         {
+            IEnumerable<Gato> gatos = GetGatos();
+
+            ViewBag.CatBreeds = new SelectList(gatos, "id", "name");
+
             return View();
         }
 
+        public IEnumerable<Gato> GetGatos()
+        {
 
+            IEnumerable<Gato> gatos = new List<Gato>();
+            var response = _client.GetAsync("v1/breeds").Result;
+
+            if (response.IsSuccessStatusCode)
+            {
+                var responseContent = response.Content.ReadAsStringAsync().Result;
+                gatos = JsonConvert.DeserializeObject<IEnumerable<Gato>>(responseContent);
+            }
+
+            return gatos;
+        }
 
 
     }
